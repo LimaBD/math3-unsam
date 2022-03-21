@@ -17,7 +17,7 @@ import unittest
 import utils
 
 
-class TestFunction(unittest.TestCase):
+class TestUtils(unittest.TestCase):
     """Class for testcase definition"""
     maxDiff = None
 
