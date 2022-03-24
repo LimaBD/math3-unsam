@@ -13,7 +13,7 @@ import unittest
 
 
 # Local packages
-import error as err
+from numeric_methods import error as err
 
 
 class TestError(unittest.TestCase):
