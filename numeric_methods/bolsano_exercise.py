@@ -24,7 +24,7 @@ import re
 
 
 # Local packages
-from numeric_methods import function
+from numeric_methods import function as func
 from numeric_methods import utils
 
 
@@ -47,7 +47,7 @@ def main():
     interval = [float(x) for x in re.findall(r'-?\d+\.?\d*', interval)]
 
     # Find and print root
-    function = Function(function, verbose=True)
+    function = func.Function(function, verbose=True)
     function.nsection(interval, error, splits=[3,2])
 
 
