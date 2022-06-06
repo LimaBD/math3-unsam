@@ -4,3 +4,5 @@
 # Studies
 
 This repository contains code used on studies and exercises
+
+Alert!, here you may find hardcoded code, repeated and unnecessarily made by hand, it is because they were made in order to learn different concepts and topics
