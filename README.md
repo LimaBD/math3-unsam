@@ -5,4 +5,4 @@
 
 This repository contains code used on studies and exercises
 
-Alert!, here you may find hardcoded code, repeated and unnecessarily made by hand, it is because they were made in order to learn different concepts and topics
+Alert!, here you may find hardcoded code, repeated and unnecessarily made by hand, it is because they were made in order to learn different concepts and topics and not to be used in production or anything like that.
