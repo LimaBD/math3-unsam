@@ -8,10 +8,6 @@
 """Error module"""
 
 
-# Standard packages
-import re
-
-
 def absolute_error(interval):
     """Calculate the absolute error of a interval"""
     return abs(interval[-1] - interval[0])

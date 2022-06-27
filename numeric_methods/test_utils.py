@@ -14,7 +14,7 @@ import unittest
 
 
 # Local packages
-from numeric_methods import utils
+import utils
 
 
 class TestUtils(unittest.TestCase):

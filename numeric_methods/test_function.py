@@ -13,7 +13,7 @@ import unittest
 
 
 # Local packages
-from numeric_methods import function as func
+import function as func
 
 
 class TestFunction(unittest.TestCase):

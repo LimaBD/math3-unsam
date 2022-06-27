@@ -24,8 +24,8 @@ import re
 
 
 # Local packages
-from numeric_methods import function as func
-from numeric_methods import utils
+import function as func
+import utils
 
 
 # Global constants

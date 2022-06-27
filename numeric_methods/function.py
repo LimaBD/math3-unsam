@@ -18,7 +18,7 @@ import math
 
 
 # Local packages
-from numeric_methods import error as err
+import error as err
 
 
 class Function:
