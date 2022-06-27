@@ -34,8 +34,9 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       run: |
-        coverage run -m unittest discover
+        ## TODO: solve imports with discover
+        coverage run -m unittest discover ./numeric_methods/
         coverage xml
-        
+  
     # Send coverage report to codecov
     - run: bash <(curl -s https://codecov.io/bash)
