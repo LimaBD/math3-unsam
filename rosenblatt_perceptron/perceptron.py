@@ -28,7 +28,7 @@ class Perceptron:
         """Fit weights"""
         ## TODO: solve weight calculation
 
-        is_activated = self.predict(figure)
+        is_activated, _ = self.predict(figure)
 
         if should_activate == is_activated:
             return
@@ -51,4 +51,4 @@ class Perceptron:
 
         is_activated = sum_result > self.bias
 
-        return is_activated
+        return is_activated, sum_result
