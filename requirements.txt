@@ -1,0 +1,8 @@
+# Basic requirements for Studies
+#
+# usage:
+#    pip install -r requirements.txt
+#
+
+matplotlib==3.5.2
+numpy==1.23.1
