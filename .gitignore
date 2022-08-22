@@ -1,1 +1,8 @@
+# Python gitignore
 __pycache__/
+
+# Java gitignore
+*.class
+
+# C gitignore
+## TODO: WORK-IN-PROGRESS
