@@ -1,6 +1,7 @@
 #!/bin/bash
 #
-# Este script ejecuta CarreraCaballos
+# Este script es util para
+# ejecutar CarreraCaballos.java
 #
 
 javac ./CarreraCaballos.java

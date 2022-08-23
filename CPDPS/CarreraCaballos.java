@@ -1,17 +1,50 @@
+import java.util.*;
+import java.lang.Thread;
+
 public class CarreraCaballos extends Thread {
+
     public static void main(String args[]) {
-        Caballo jugadorUno = new Caballo("#1", 6);
-        Caballo jugadorDos = new Caballo("Rapido y Furioso", 6);
-        Caballo jugadorTres = new Caballo("Rocket", 6);
 
-        jugadorUno.start();
-        jugadorDos.start();
-        jugadorTres.start();
+        int cantidadCaballos = 6;
+        List<Caballo> caballos = new ArrayList<Caballo>();
+        boolean hayUnGanador = false;
 
+        // Inicializamos los caballos
+        for (int i=0; i<cantidadCaballos; i++) {
+            // Tiene un numero exageradamente grande para
+            // que haya una diferencia importante entre threads
+            caballos.add(i, new Caballo("Caballo N" + i, 1, 9223372036854775807L, hayUnGanador));
+            caballos.get(i).start();
+        }
+
+        // Seguimiento de posiciones
+        while (!hayUnGanador) {
+            // Limpiamos la consola
+            System.out.print("\033\143"); // Esto es solo para OS basados en Linux
+
+            // Orden de posiciones
+            caballos.sort((o1, o2) -> Long.toString(o1.distanciaRecorrida).compareTo(Long.toString(o2.distanciaRecorrida)));
+
+            // Imprimimos en consola
+            for (int i=0; i<cantidadCaballos; i++) {
+                System.out.print("#" + i + "\t" + caballos.get(i).nombreDelCaballo + " (recorrido " + caballos.get(i).distanciaRecorrida + " km)\n");
+            }
+
+            // Hacemos que quede imprimido el
+            // resultado un tiempo antes que
+            // se limpie la consola
+            try {
+                Thread.sleep(100);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+
+        // Finaliza threads
         try {
-            jugadorUno.join();
-            jugadorDos.join();
-            jugadorTres.join();
+            for (int i=0; i<cantidadCaballos; i++) {
+                caballos.get(i).join();
+            }
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -19,22 +52,26 @@ public class CarreraCaballos extends Thread {
 }
 
 class Caballo extends Thread {
-    static String nombreDelCaballo;
-    static int velocidadPorCiclo;
 
-    public Caballo(String nombre, int velocidad) {
+    String nombreDelCaballo;
+    long avanzePorCiclo;
+    long distanciaTotal;
+    boolean hayUnGanador;
+
+    long distanciaRecorrida;
+
+    public Caballo(String nombre, long velocidad, long distancia, boolean ganador) {
         nombreDelCaballo = nombre;
-        velocidadPorCiclo = velocidad;
+        avanzePorCiclo = velocidad;
+        distanciaTotal = distancia;
+        hayUnGanador = ganador;
+        distanciaRecorrida = 0;
     }
 
     public void run() {
-        int distanciaRecorrida = 0;
-        int distanciaTotal = 70000;
-
-        while (distanciaRecorrida < distanciaTotal) {
-            distanciaRecorrida = distanciaRecorrida + velocidadPorCiclo;
+        while ((this.distanciaRecorrida < this.distanciaTotal) && !hayUnGanador) {
+            this.distanciaRecorrida = this.distanciaRecorrida + this.avanzePorCiclo;
         }
-
-        System.out.println("Caballo #" + nombreDelCaballo + " ganador!");
+        hayUnGanador = true;
     }
 }
