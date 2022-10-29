@@ -125,6 +125,9 @@ go install github.com/tomnomnom/assetfinder@latest
 # Dirsearch
 pip3 install dirsearch
 
+# MYSQL Workbench
+yay -S mysql-workbench
+
 # SQLMap
 cd $toolsrepos
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git
