@@ -125,6 +125,9 @@ go install github.com/tomnomnom/assetfinder@latest
 # Dirsearch
 pip3 install dirsearch
 
+# MYSQL
+sudo pacman -S mysql
+
 # MYSQL Workbench
 yay -S mysql-workbench
 
