@@ -26,7 +26,7 @@ class Diff:
         """Set starting value"""
         self.starting = value
 
-    def stop(self, value: float|int) -> float:
+    def stop(self, value: float|int) -> tuple[float, float]:
         """Calculate absolute difference between starting and
            stopping value, calculate percent difference"""
         if self.starting is None:
@@ -42,6 +42,10 @@ def percent(total: float|int, part: float|int) -> float:
 def acre_to_sqft(acre: float|int) -> float:
     """Convert acre to square feet"""
     return acre * 43560
+
+def sqft_to_acre(sqft: float|int) -> float:
+    """Convert square feet to acre"""
+    return sqft / 43560
 
 if __name__ == '__main__':
     print('This is a module, not a script.')
