@@ -34,17 +34,10 @@ import time
 
 # Constants
 MAP_ZOOM = 9
-MAP_WEST = -126.29809186925162 # USA most west point
-MAP_SOUTH = 22.87133004254051 # USA most south point
-MAP_EAST = -66.65550054564635 # USA most east point
-MAP_NORTH = 49.592171261874455 # USA most north point
-MAP_SEGMENT_SIZE = -99.65638785475313 + 102.08985953444063
 CURRENT_FOLDER = os.path.dirname(os.path.realpath(__file__))
-LOGS_FOLDER = os.path.join(CURRENT_FOLDER, 'logs')
-JSON_FOLDER = os.path.join(CURRENT_FOLDER, 'jsons')
-CSV_FOLDER = os.path.join(CURRENT_FOLDER, 'csvs')
-CSV_FILE = os.path.join(CSV_FOLDER, 'properties.csv')
-CURL_FILE = os.path.join(CURRENT_FOLDER, 'renew_curl_here.txt')
+CONTENT_FOLDER = os.path.join(CURRENT_FOLDER, 'content')
+CSV_FILE = os.path.join(CONTENT_FOLDER, 'properties.csv')
+CURL_FILE = os.path.join(CONTENT_FOLDER, 'renew_curl_here.txt')
 
 class Map:
     """Map coordinates class, this provide functionality
@@ -318,14 +311,25 @@ def append_row_to_csv(filename: str, row: dict) -> None:
 
 if __name__ == '__main__':
     set_renew_file_to_default()
-    full_map = Map(
-        west=MAP_WEST,
-        south=MAP_SOUTH,
-        east=MAP_EAST,
-        north=MAP_NORTH,
+
+    # Coordinates to use:
+    us_map = Map(
+        west=-126.29809186925162,
+        south=22.87133004254051,
+        east=-66.65550054564635,
+        north=49.592171261874455,
     )
-    full_map.set_segment_size(MAP_SEGMENT_SIZE)
-    run_map_search_scan(full_map)
+    us_map.set_segment_size(102.08985953444063 - 99.65638785475313)
+    manhattan_map = Map(
+        west=-74.0203773151059,
+        south=40.70079393871409,
+        east=-73.96467319828461,
+        north=40.76836778702962,
+    )
+    manhattan_map.set_segment_size(73.9909731508722 - 73.97704712166687)
+
+    # Start scraping:
+    run_map_search_scan(manhattan_map)
     ## TODO: deep_into_property()
     print('Done.')
     set_renew_file_to_default()
