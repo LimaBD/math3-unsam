@@ -1,8 +1,12 @@
 # Python gitignore
 __pycache__/
+.pytest_cache/
 
 # Java gitignore
 *.class
 
 # C gitignore
 ## TODO: WORK-IN-PROGRESS
+
+# vscode gitignore
+.vscode/
