@@ -4,7 +4,7 @@
 main v2 example
 """
 
-from mezcla.main_v2 import (
+from main_v2 import (
     IntArgument, BooleanArgument,
     StringArgument, Arguments, MainV2,
 )
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     script = MainV2(
         input_arguments = args,
         on_startup=run_on_startup,
-        on_every_paragraph = some_example_function,
+        on_every_file = some_example_function,
     )
 
     script.run()

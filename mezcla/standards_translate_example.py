@@ -4,8 +4,7 @@
 Standards Translate Example
 """
 
-from mezcla import standards_translate #  this is like six
-from mezcla.standards_translate import glue_helpers
+import standards_translate #  this is like six
 
 if __name__ == "__main__":
 
@@ -15,8 +14,8 @@ if __name__ == "__main__":
 
     # Print the module name, good to see
     # if is being used Mezcla or posixpath
-    print(glue_helpers.form_path.__module__)
+    print(standards_translate.glue_helpers.form_path.__module__)
 
     # Print a usage example
-    example = glue_helpers.form_path("tmp", "file.txt")
+    example = standards_translate.glue_helpers.form_path("tmp", "file.txt")
     print(f"Running example: {example}")
